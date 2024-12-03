@@ -22,9 +22,9 @@ jobs:
 workflows:
   build-workflow:
     jobs:
-      - build
-        filters:
-          branches:
-            only: develope
-          tags:
-            only: /^v.*/
+      - build:
+          filters:
+            branches:
+              only: develope
+            tags:
+              only: /^v.*/
