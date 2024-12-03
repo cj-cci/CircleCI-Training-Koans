@@ -11,9 +11,9 @@ jobs:
           command: | 
             echo "You can even have multiline commands."
       - run:
-          name: "Echo did not change any tags"
+          name: "Echo added v.1.1 tag"
           command: | 
-            echo "Did not change any tags"
+            echo "Added v.1.1 tag"
 
 workflows:
   build-workflow:
