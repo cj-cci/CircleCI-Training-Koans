@@ -10,6 +10,10 @@ jobs:
           name: "'run' statements can actually contain a 'name' and 'command' argument as well"
           command: | 
             echo "You can even have multiline commands."
+      - run:
+          name: "Echo did not change any tags"
+          command: | 
+            echo "Did not change any tags"
 
 workflows:
   build-workflow:
