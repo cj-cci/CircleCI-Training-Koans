@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  build:
+    docker: 
+      - image: cimg/base:2022.10
+    steps:
+      - checkout
+      - run:
+          name: "'run' statements can actually contain a 'name' and 'command' argument as well"
+          command: | 
+            echo "You can even have multiline commands."
+      - run:
+          name: "aaa"
+          command: | 
+            echo "aaa"
+
+workflows:
+  build-workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: filter-test
+            tags:
+              only: /^v.*/
