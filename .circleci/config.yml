@@ -3,9 +3,6 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/node:23.3.0
-        environment:
-          TEST_DATABASE_URL: postgresql://postgres@localhost/circle_test
       - image: cimg/postgres:17.0
         environment:
           POSTGRES_USER: postgres
@@ -26,11 +23,11 @@ jobs:
       - run: whoami
       - run: |
           psql \
-          -d $TEST_DATABASE_URL \
+          -d "postgresql://postgres@localhost/circle_test" \
           -c "CREATE TABLE test (name char(25));"
       - run: |
           psql \
-          -d $TEST_DATABASE_URL \
+          -d "postgresql://postgres@localhost/circle_test" \
           -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
 
 workflows:
